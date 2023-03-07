@@ -1,0 +1,9 @@
+export interface I<%= props.name %> {
+  base: string
+}
+
+const <%= props.name %>: React.FC<I<%= props.name %>> = ({ base }) => {
+  return <div>{base}</div>
+}
+
+export default <%= props.name %>

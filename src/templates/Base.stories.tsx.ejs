@@ -1,0 +1,26 @@
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+import <%= props.name %>, { I<%= props.name %> } from './<%= props.name %>'
+import <%= props.name %>Documentation from './<%= props.name %>.documentation.mdx'
+import { mock<%= props.name %>Props } from './<%= props.name %>.mocks'
+
+export default {
+  title: '<%= props.type.toLowerCase() %>/<%= props.path.replace(`/${props.path.split('/').pop()}`, '') %>',
+  component: <%= props.name %>,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {},
+  parameters: {
+    docs: {
+      page: <%= props.name %>Documentation
+    }
+  }
+} as ComponentMeta<typeof <%= props.name %>>
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template: ComponentStory<typeof <%= props.name %>> = (args) => <<%= props.name %> {...args} />
+
+export const <%= props.name %>_ = Template.bind({})
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+
+<%= props.name %>_.args = {
+  ...mock<%= props.name %>Props.base
+} as I<%= props.name %>
